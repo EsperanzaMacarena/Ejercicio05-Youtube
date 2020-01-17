@@ -4,12 +4,10 @@ public class Video {
     private String title;
     private String author;
     private String duration;
-    private String views;
+    private int views;
     private String photoPreview;
 
-    public Video() { }
-
-    public Video(String title, String author, String duration, String views, String photoPreview) {
+    public Video(String title, String author, String duration, int views, String photoPreview) {
         this.title = title;
         this.author = author;
         this.duration = duration;
@@ -41,11 +39,11 @@ public class Video {
         this.duration = duration;
     }
 
-    public String getViews() {
+    public int getViews() {
         return views;
     }
 
-    public void setViews(String views) {
+    public void setViews(int views) {
         this.views = views;
     }
 
@@ -63,7 +61,7 @@ public class Video {
                 "title='" + title + '\'' +
                 ", author='" + author + '\'' +
                 ", duration='" + duration + '\'' +
-                ", views='" + views + '\'' +
+                ", views=" + views +
                 ", photoPreview='" + photoPreview + '\'' +
                 '}';
     }
