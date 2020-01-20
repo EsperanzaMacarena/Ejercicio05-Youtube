@@ -1,12 +1,17 @@
 package com.escacena.ejercicio05;
 
+import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.bumptech.glide.Glide;
+
 import java.util.List;
 
 
@@ -32,9 +37,23 @@ public class MyVideoRecyclerViewAdapter extends RecyclerView.Adapter<MyVideoRecy
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
         holder.mItem = videos.get(position);
-        holder.mItem = mValues.get(position);
-     //   holder.mIdView.setText(mValues.get(position).id);
-        holder.mContentView.setText(mValues.get(position).content);
+        holder.channel.setText(holder.mItem.getChannel());
+        holder.duration.setText(holder.mItem.getDuration());
+        holder.title.setText(holder.mItem.getTitle());
+        holder.views.setText(String.valueOf(holder.mItem.getViews()));
+
+        Glide
+                .with(context)
+                .load(holder.mItem.getPhotoPreview())
+                .centerCrop()
+                .into(holder.imgVideoPreview);
+
+        Glide
+                .with(context)
+                .load(holder.mItem.getChannelImg())
+                .centerCrop()
+                .into(holder.imgAuthor);
+
     }
 
     @Override
@@ -44,24 +63,33 @@ public class MyVideoRecyclerViewAdapter extends RecyclerView.Adapter<MyVideoRecy
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         public final View mView;
-
+        public ImageView imgVideoPreview, imgAuthor;
         public Video mItem;
-
-    //    public final TextView mIdView;
-        public final TextView mContentView;
-        public DummyItem mItem;
+        public TextView views, title, channel, duration;
 
         public ViewHolder(View view) {
             super(view);
             mView = view;
-
-    //        mIdView = (TextView) view.findViewById(R.id.item_number);
-            mContentView = (TextView) view.findViewById(R.id.content);
+            this.imgVideoPreview = view.findViewById(R.id.videoImagePreview);
+            this.imgAuthor = view.findViewById(R.id.videoAuthor);
+            this.views = view.findViewById(R.id.videoViews);
+            this.title = view.findViewById(R.id.videoTitle);
+            this.channel =view.findViewById(R.id.videoChannel);
+            this.duration = view.findViewById(R.id.videoDuration);
         }
 
         @Override
         public String toString() {
-            return super.toString() + " '"  + "'";
+            return "ViewHolder{" +
+                    "mView=" + mView +
+                    ", imgVideoPreview=" + imgVideoPreview +
+                    ", imgAuthor=" + imgAuthor +
+                    ", mItem=" + mItem +
+                    ", views=" + views +
+                    ", title=" + title +
+                    ", channel=" + channel +
+                    ", duration=" + duration +
+                    '}';
         }
     }
 }

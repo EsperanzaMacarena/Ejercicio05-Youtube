@@ -54,10 +54,10 @@ public class VideoFragment extends Fragment {
                 recyclerView.setLayoutManager(new GridLayoutManager(context, mColumnCount));
             }
             list = new ArrayList<>();
-            list.add(new Video ("JAWS","WARNER BROS","2:03",500, null));
-            list.add(new Video ("JAWS","WARNER BROS","2:03",500, null));
-            list.add(new Video ("JAWS","WARNER BROS","2:03",500, null));
-            list.add(new Video ("JAWS","WARNER BROS","2:03",500, null));
+            list.add(new Video ("It's been real, but I'm out!","https://yt3.ggpht.com/a/AGF-l79FVckie4j9WT-4cEW6iu3gPd4GivQf_XNSWg=s288-c-k-c0xffffffff-no-rj-mo","2:03",500, "https://img.youtube.com/vi/IZXgjR9INsA/mqdefault.jpg","PewDiePie"));
+            list.add(new Video ("My New Car!","https://yt3.ggpht.com/a/AGF-l79FVckie4j9WT-4cEW6iu3gPd4GivQf_XNSWg=s288-c-k-c0xffffffff-no-rj-mo","2:03",500, "https://img.youtube.com/vi/M_rfdz7vplU/mqdefault.jpg","PewDiePie"));
+            list.add(new Video ("I hate Lilys Garden and her teeth","https://yt3.ggpht.com/a/AGF-l79FVckie4j9WT-4cEW6iu3gPd4GivQf_XNSWg=s288-c-k-c0xffffffff-no-rj-mo","2:03",500, "https://img.youtube.com/vi/IxhXSY24W2k/mqdefault.jpg","PewDiePie"));
+            list.add(new Video ("EVERYTHING IS AWFUL","https://yt3.ggpht.com/a/AGF-l79FVckie4j9WT-4cEW6iu3gPd4GivQf_XNSWg=s288-c-k-c0xffffffff-no-rj-mo","2:03",500, "https://img.youtube.com/vi/h2K2-MdIva4/mqdefault.jpg","PPewDiePie"));
 
             adapter = new MyVideoRecyclerViewAdapter(context,R.layout.fragment_video,list);
 
