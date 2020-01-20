@@ -32,7 +32,9 @@ public class MyVideoRecyclerViewAdapter extends RecyclerView.Adapter<MyVideoRecy
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
         holder.mItem = videos.get(position);
-
+        holder.mItem = mValues.get(position);
+     //   holder.mIdView.setText(mValues.get(position).id);
+        holder.mContentView.setText(mValues.get(position).content);
     }
 
     @Override
@@ -45,10 +47,16 @@ public class MyVideoRecyclerViewAdapter extends RecyclerView.Adapter<MyVideoRecy
 
         public Video mItem;
 
+    //    public final TextView mIdView;
+        public final TextView mContentView;
+        public DummyItem mItem;
+
         public ViewHolder(View view) {
             super(view);
             mView = view;
 
+    //        mIdView = (TextView) view.findViewById(R.id.item_number);
+            mContentView = (TextView) view.findViewById(R.id.content);
         }
 
         @Override
